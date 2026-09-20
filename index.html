@@ -2209,7 +2209,89 @@ body.locked{position:fixed;left:0;right:0;width:100%;overflow:hidden}
   background:var(--primary);color:#fff;font-size:10px;font-weight:750;display:grid;place-items:center}
 @media(min-width:861px){#navsheet{display:none}}
 
+/* ===== sports ===== */
+.spsec{margin-bottom:26px}
+.spsec-h{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+.spsec-h .sps-n{font-size:15px;font-weight:700;letter-spacing:-.02em}
+.sprow{
+  display:flex;gap:14px;overflow-x:auto;padding:4px 2px 12px;
+  scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.sprow::-webkit-scrollbar{display:none}
+.spcard{
+  flex:0 0 268px;scroll-snap-align:start;position:relative;overflow:hidden;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-xl);
+  padding:18px 18px 15px;box-shadow:var(--sh-sm);cursor:pointer;
+  transition:transform var(--t) var(--ease),box-shadow var(--t) var(--ease),border-color var(--t) var(--ease)}
+.spcard::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--tc)}
+.spcard:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:var(--tc)}
+.spcard.closed,.spcard.none{opacity:.72}
+.sp-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.sp-ic{
+  width:44px;height:44px;flex:none;border-radius:14px;display:grid;place-items:center;color:var(--tc);
+  background:color-mix(in srgb,var(--tc) 13%,transparent)}
+.sp-ic svg{width:26px;height:26px}
+.sp-ic.big{width:58px;height:58px;border-radius:18px}
+.sp-ic.big svg{width:32px;height:32px}
+.sp-ic.sm{width:32px;height:32px;border-radius:11px}
+.sp-ic.sm svg{width:18px;height:18px}
+.sp-badge{
+  margin-left:auto;font-size:11px;font-weight:700;padding:4px 9px;border-radius:var(--r-pill);white-space:nowrap}
+
+.spcard .sp-n{font-size:16.5px;font-weight:700;letter-spacing:-.025em;line-height:1.2}
+.spcard .sp-t{font-size:12.5px;color:var(--text-muted);margin-top:3px}
+.spcard .sp-hours{font-size:13px;font-weight:600;color:var(--text-2);margin-top:10px}
+.sp-warn{
+  display:flex;align-items:flex-start;gap:7px;margin-top:10px;padding:7px 9px;border-radius:var(--r-sm);
+  background:var(--danger-soft);color:var(--danger);font-size:11.5px;font-weight:600;line-height:1.4}
+.sp-warn svg{width:14px;height:14px;flex:none;margin-top:1px}
+.sp-quota{margin-top:12px}
+.sp-quota .prog{margin-bottom:5px}
+.sp-acts{display:flex;align-items:center;gap:7px;margin-top:14px}
+.sp-acts .btn{flex:1}
+.sp-acts .iconbtn{width:38px;height:38px;flex:none;color:var(--text-2)}
+.sp-chip{
+  display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:var(--r-pill);
+  background:color-mix(in srgb,var(--tc) 12%,transparent);color:var(--tc);
+  font-size:12px;font-weight:650;white-space:nowrap}
+.sp-chip svg{width:15px;height:15px}
+
+.spbars{display:flex;align-items:flex-end;gap:5px;height:82px;margin-top:12px;overflow-x:auto;scrollbar-width:none}
+.spbars::-webkit-scrollbar{display:none}
+.spbar{flex:1;min-width:16px;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%}
+.spbar i{width:100%;margin-top:auto;border-radius:5px;background:var(--surface-3);min-height:4px;
+  transition:height var(--t-slow) var(--ease)}
+.spbar i[style*="height: 0"]{background:var(--surface-3)}
+.spbar:not(.today) i{background:color-mix(in srgb,var(--primary) 45%,transparent)}
+.spbar.today i{background:var(--primary)}
+.spbar span{font-size:9.5px;color:var(--text-faint);font-variant-numeric:tabular-nums}
+
+.spdlg .spd-h{display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:1px solid var(--line-soft)}
+.spdlg .spd-h h2{font-size:23px;letter-spacing:-.03em;margin-top:3px}
+.spd-addr{display:flex;align-items:center;gap:11px;margin-top:14px;padding:11px 13px;
+  background:var(--surface-2);border-radius:var(--r-md);font-size:14px;flex-wrap:wrap}
+.spd-sec{margin-top:20px}
+.spd-sec h4{font-size:12.5px;font-weight:700;color:var(--text-muted);margin-bottom:8px}
+.spd-sec p{margin:0;font-size:14px;line-height:1.7;color:var(--text-2)}
+.sphours{display:grid;gap:3px}
+.sph-row{display:flex;align-items:center;gap:12px;padding:7px 10px;border-radius:var(--r-sm);font-size:13.5px}
+.sph-row.now{background:var(--primary-softer);font-weight:650}
+.sph-d{width:100px;color:var(--text-2)}
+.sph-t{font-variant-numeric:tabular-nums}
+.sph-block{margin-left:auto;font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--r-pill);
+  background:var(--danger-soft);color:var(--danger)}
+.sphedit{display:grid;gap:6px}
+.sphe-row{display:grid;grid-template-columns:96px 1fr 1fr;gap:8px;align-items:center}
+.sphe-row span{font-size:13px;color:var(--text-2)}
+
+@media(max-width:860px){
+  .spcard{flex:0 0 82vw;padding:16px}
+  .sph-d{width:74px}
+  .sphe-row{grid-template-columns:60px 1fr 1fr}
+  .spd-addr{font-size:13px}
+}
+
 </style>
+
 
 
 
@@ -2619,6 +2701,7 @@ const NAV=[
     {id:"shop",     name:"Einkauf",  ic:"cart"},
     {id:"nutrition",name:"Energie & Makros",ic:"target"},
     {id:"budget",   name:"Budget",    ic:"wallet"},
+    {id:"sports",   name:"Fitness",   ic:"spGym"},
     {id:"growth",   name:"Growth",   ic:"lightbulb"},
     {id:"journal",  name:"Journal",  ic:"journal"},
     {id:"habits",   name:"Habits",   ic:"habits"},
@@ -9795,6 +9878,8 @@ function viewHome(){
       <div class="c3">${homeNutriCard()}</div>
       <div class="c4">${renderWeather()}</div>
 
+      <div class="c4">${homeSportsCard()}</div>
+
       <div class="c6">${routineCard("morning")}</div>
       <div class="c6">${routineCard("evening")}</div>
 
@@ -12013,7 +12098,6 @@ function ensureV14(st){
     st.settings.categories.push({id:"finance-guide",name:"Finanzen & Budget",emoji:"💰",color:"#d99022"});
   return st;
 }
-function ensureV2(st){return ensureV14(st);}
 
 /* finance guides live next to the household ones */
 GUIDE_REGISTRY.push(FIN_GUIDES);
@@ -12403,18 +12487,7 @@ function validateState(st){
   return bad;
 }
 /** fills gaps, never throws away what is there */
-function repairState(st){
-  REQUIRED_ARRAYS.forEach(k=>{if(!Array.isArray(st[k]))st[k]=[];});
-  st.settings=st.settings||{};
-  st.tasks=st.tasks.filter(t=>t&&typeof t==="object").map(t=>({...t,id:t.id||uid()}));
-  st.blocks=st.blocks.filter(b=>b&&typeof b==="object"&&(b.date||b.recurrence))
-    .map(b=>({...b,id:b.id||uid()}));
-  st.birthdays=st.birthdays.filter(p=>p&&p.day>=1&&p.day<=31&&p.month>=1&&p.month<=12)
-    .map(p=>({...p,id:p.id||uid(),gifts:Array.isArray(p.gifts)?p.gifts:[]}));
-  ensureV14(st);
-  st.schemaVersion=SCHEMA_VERSION;
-  return st;
-}
+
 /* ---------- the last state we know was fine ---------- */
 let lastGood=null,lastGoodAt=0;
 async function keepBackup(){
@@ -12780,11 +12853,449 @@ document.addEventListener("change",e=>{
    ============================================================ */
 ICON.dots='<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>';
 
+/* start the reminder loop once the state is up */
+setTimeout(()=>{try{S.schemaVersion=SCHEMA_VERSION;notifyStart();keepBackup();}catch(e){}},2200);
+
+boot();
+
+/* ============================================================
+   SPORTS — Urban Sports Standorte
+   ============================================================ */
+const SP_TYPES=[
+  {id:"gym",    n:"Gym",        ic:"spGym",    c:"#6c7bd9"},
+  {id:"swim",   n:"Schwimmen",  ic:"spSwim",   c:"#3d9bd8"},
+  {id:"sauna",  n:"Sauna & Wellness",ic:"spSauna",c:"#e08a4a"},
+  {id:"aqua",   n:"Aquafitness",ic:"spAqua",   c:"#2fa8a4"},
+  {id:"course", n:"Kurse",      ic:"spCourse", c:"#dd6b8e"}
+];
+const spType=id=>SP_TYPES.find(t=>t.id===id)||SP_TYPES[0];
+
+ICON.spGym='<path d="M3.2 9.4v5.2M6.2 7.2v9.6M17.8 7.2v9.6M20.8 9.4v5.2"/><path d="M6.2 12h11.6"/>'
+  +'<rect x="4.4" y="8.2" width="2.6" height="7.6" rx="1"/><rect x="17" y="8.2" width="2.6" height="7.6" rx="1"/>';
+ICON.spSwim='<circle cx="17.4" cy="6.6" r="1.7"/><path d="M6.4 13.2 10 9.8a2 2 0 0 1 2.9.1l2.5 2.9"/>'
+  +'<path d="M9.4 11.4 12.8 14"/><path d="M2.6 18.2c1.3 0 1.3 1.2 2.6 1.2s1.3-1.2 2.6-1.2 1.3 1.2 2.6 1.2 1.3-1.2 2.6-1.2 1.3 1.2 2.6 1.2 1.3-1.2 2.6-1.2 1.3 1.2 2.6 1.2"/>';
+ICON.spSauna='<path d="M4.2 20.4V11a2 2 0 0 1 2-2h11.6a2 2 0 0 1 2 2v9.4"/><path d="M4.2 20.4h15.6"/>'
+  +'<path d="M8 20.4v-5.8M16 20.4v-5.8M12 20.4v-8"/>'
+  +'<path d="M8.6 6.4c0-1.2 1-1.6 1-2.8M12 6.4c0-1.2 1-1.6 1-2.8M15.4 6.4c0-1.2 1-1.6 1-2.8"/>';
+ICON.spAqua='<path d="M12 3.4c2.6 3 4.6 5.4 4.6 7.9A4.6 4.6 0 0 1 12 15.9a4.6 4.6 0 0 1-4.6-4.6C7.4 8.8 9.4 6.4 12 3.4Z"/>'
+  +'<path d="M2.6 19c1.3 0 1.3 1.2 2.6 1.2S6.5 19 7.8 19s1.3 1.2 2.6 1.2S11.7 19 13 19s1.3 1.2 2.6 1.2S16.9 19 18.2 19s1.3 1.2 2.6 1.2"/>';
+ICON.spCourse='<circle cx="12" cy="4.9" r="1.8"/><path d="M12 7.4v5.2"/><path d="M8 9.6h8"/>'
+  +'<path d="M12 12.6 9.4 20M12 12.6 14.6 20"/>';
+ICON.phone='<path d="M6.4 3.6h3.1l1.6 4-2 1.2a11 11 0 0 0 5.1 5.1l1.2-2 4 1.6v3.1a1.8 1.8 0 0 1-2 1.8A15.6 15.6 0 0 1 4.6 5.6a1.8 1.8 0 0 1 1.8-2Z"/>';
+ICON.copy='<rect x="8.6" y="8.6" width="11" height="11" rx="2.2"/><path d="M15.4 5.4H6.6a2.2 2.2 0 0 0-2.2 2.2v8.8"/>';
+ICON.pin='<path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/>';
+ICON.link='<path d="M10.4 13.6a3.6 3.6 0 0 0 5.1 0l2.6-2.6a3.6 3.6 0 1 0-5.1-5.1l-1.2 1.2"/>'
+  +'<path d="M13.6 10.4a3.6 3.6 0 0 0-5.1 0l-2.6 2.6a3.6 3.6 0 1 0 5.1 5.1l1.2-1.2"/>';
+
+/* function declarations, because defaultSports() runs during initialisation */
+function H(mo,di,mi,don,fr,sa,so){return[mo,di,mi,don,fr,sa,so];}
+function hh(a,b){return{o:a,c:b};}
+
+function defaultSports(){
+  const P=(o)=>({id:"sp"+(++P.n),city:"Potsdam",type:"gym",allowance:{n:1,per:"Tag"},
+    address:"",url:"",phone:"",desc:"",info:"",hours:H(null,null,null,null,null,null,null),
+    blocks:[],hoursNote:"",fav:false,order:P.n,...o});
+  P.n=0;
+  return{places:[
+    P({name:"Day Night Sports",city:"Potsdam",type:"gym",allowance:{n:1,per:"Tag"},
+      address:"Lotte-Pulewka-Straße 22, 14473 Potsdam",url:"https://www.day-night-sports.de",
+      hours:H(hh("00:00","23:59"),hh("00:00","23:59"),hh("00:00","23:59"),hh("00:00","23:59"),
+              hh("00:00","23:00"),hh("07:00","23:00"),hh("07:00","23:59")),
+      desc:"Funktionelles Training im Cross-Bereich, großer Gerätepark, Cardio, separater Ladycorner und Kurse (u. a. Les Mills). Liegt am Kreuz Friedrich-List-/Nutheschnellstraße nahe dem Hauptbahnhof.",
+      info:"Kostenlose Parkplätze direkt vor der Tür. Bus 601, 619, 690, 694 · Tram 94, 99."}),
+    P({name:"JOHN REED",city:"Potsdam",type:"gym",allowance:{n:1,per:"Tag"},
+      address:"Breite Straße 25–27, 14471 Potsdam",url:"https://johnreed.fitness/",
+      hours:H(hh("06:00","23:59"),hh("06:00","23:59"),hh("06:00","23:59"),hh("06:00","23:59"),
+              hh("06:00","23:59"),hh("06:00","23:59"),hh("06:00","23:59")),
+      desc:"Fitness Music Club mit eigener Trainingsatmosphäre. Cardio, Geräte, Freihantel, Functional Training und Kurse."}),
+    P({name:"Fitness First",city:"Potsdam",type:"gym",allowance:{n:1,per:"Tag"},
+      address:"Babelsberger Straße 16, 14473 Potsdam",url:"https://www.fitnessfirst.de/clubs/potsdam",
+      hours:H(hh("06:00","23:00"),hh("06:00","23:00"),hh("06:00","23:00"),hh("06:00","23:00"),
+              hh("06:00","23:00"),hh("08:00","20:00"),hh("08:00","20:00")),
+      desc:"Kraft-, Fitness- und Wellnessprogramm, dazu flexible Kurse.",
+      info:"App-Check-in erst nach einmaliger Aktivierung vor Ort mit dem Zutrittsmedium. Mitgliedskarte kostet einmalig 5 € direkt im Studio. Freies Training ohne Buchung; Kurse über die Urban-Sports-App mit verbindlicher Stornofrist."}),
+    P({name:"Kiezbad Am Stern",city:"Potsdam",type:"swim",allowance:{n:8,per:"Monat"},
+      address:"Newtonstraße 12, 14480 Potsdam",url:"https://www.swp-potsdam.de/de/b%C3%A4der/kiezbad-am-stern/",
+      hours:H(hh("08:00","21:30"),hh("06:30","21:30"),hh("06:30","21:30"),hh("10:30","21:30"),
+              hh("06:30","21:30"),hh("08:00","18:00"),hh("08:00","18:00")),
+      blocks:[{d:5,from:"17:00",to:"20:00",label:"Frauenschwimmen — Einlass für Männer endet 17:00"}],
+      desc:"25-Meter-Becken, gut für Bahnentraining. Tram 92 und 96 sowie mehrere Buslinien bis Johannes-Kepler-Platz.",
+      info:"Pro Check-in sind zwei Stunden Schwimmzeit enthalten, alles darüber zahlst du vor Ort nach. Schließfächer brauchen eine 1- oder 2-Euro-Münze als Pfand. Einlassende 60 Minuten vor Schließung. Mitte Juli bis Ende August geschlossen.",
+      hoursNote:"Samstags von 18:00 bis 20:00 ist Frauenschwimmen, Einlass für Männer endet bereits 17:00."}),
+    P({name:"blu Sport- und Freizeitbad",city:"Potsdam",type:"swim",allowance:{n:8,per:"Monat"},
+      address:"Brauhausberg 1, 14473 Potsdam",url:"https://www.swp-potsdam.de/de/b%C3%A4der/blu-das-sport-und-freizeitbad/%C3%B6ffnungszeiten/",
+      hours:H(hh("07:30","21:30"),hh("06:30","21:30"),hh("06:30","21:30"),hh("07:30","21:30"),
+              hh("06:30","21:30"),hh("08:00","20:00"),hh("08:00","20:00")),
+      desc:"50-Meter-Sportbecken plus große Wellness- und Saunalandschaft, wenige Gehminuten vom Hauptbahnhof.",
+      info:"Einlassende im Sportbad 60 Minuten vor Schließung. An Wettkampftagen gelten abweichende Zeiten — vorher den Bahnbelegungsplan prüfen.",
+      hoursNote:"Zeiten gelten für das Sportbad. Ein festes Frauenschwimmen habe ich für das blu nicht gefunden — falls du auf Nummer sicher gehen willst, vorher kurz anrufen."}),
+    P({name:"Promnitz",city:"Potsdam",type:"aqua",allowance:{n:4,per:"Monat"},
+      address:"Zeppelinstraße 131, 14471 Potsdam",phone:"0331 90069990",
+      desc:"Aquafitness und Wassergymnastik im hauseigenen 95 m² großen Bewegungsbad. Seit 30 Jahren Physiotherapie, Sporttherapie, Reha und Prävention.",
+      info:"Termin telefonisch buchen unter 0331 90069990 und dabei die Urban-Sports-Mitgliedsnummer angeben. Wellnessangebote wie Massagen, Pilates oder Yoga sind nicht Teil des Urban-Sports-Angebots.",
+      hoursNote:"Feste Öffnungszeiten werden nicht veröffentlicht — die Termine laufen über die telefonische Buchung."}),
+    P({name:"Holmes Place Gendarmenmarkt",city:"Berlin",type:"sauna",allowance:{n:4,per:"Monat"},
+      address:"Friedrichstraße 68, 10117 Berlin",url:"https://www.holmesplace.de/clubs/berlin-gendarmenmarkt",
+      hours:H(hh("06:00","23:00"),hh("06:00","23:00"),hh("06:00","23:00"),hh("06:00","23:00"),
+              hh("06:00","22:00"),hh("08:00","22:00"),hh("08:00","22:00")),
+      desc:"Club für Fitness, Krafttraining und Wellness in Berlin-Mitte, wenige Schritte von der U-Bahn Stadtmitte (U2/U6). Großzügiger Wellnessbereich."}),
+    P({name:"Sports Club Mall of Berlin",city:"Berlin",type:"gym",allowance:{n:8,per:"Monat"},
+      address:"Leipziger Platz 12, 10117 Berlin",url:"https://www.sports-club.de/",
+      hours:H(hh("07:00","23:00"),hh("07:00","23:00"),hh("07:00","23:00"),hh("07:00","23:00"),
+              hh("07:00","23:00"),hh("09:00","21:00"),hh("09:00","21:00")),
+      desc:"Früher AllStar. Fitness und Krafttraining am Leipziger Platz, erreichbar über Potsdamer Platz oder U-Bahn Mohrenstraße. Wellnessbereich mit 20-Meter-Sportpool."})
+  ],checkins:[],filter:"",city:""};
+}
+const SP=()=>S.sports;
+const spPlaces=()=>[...(SP().places||[])].sort((a,b)=>(a.order??1e9)-(b.order??1e9));
+const spById=id=>SP().places.find(p=>p.id===id);
+const spCities=()=>[...new Set(spPlaces().map(p=>p.city))];
+
+/* ---------- opening state ---------- */
+function spToday(p,d){
+  const day=dowIdx(d||berlinNow());
+  return (p.hours||[])[day]||null;
+}
+function spBlocksToday(p,d){
+  const day=dowIdx(d||berlinNow());
+  return (p.blocks||[]).filter(b=>b.d===day);
+}
+function spStatus(p){
+  const now=berlinNow(),m=now.getHours()*60+now.getMinutes();
+  const h=spToday(p);
+  if(!h)return{k:"none",t:p.hoursNote?"Zeiten auf Anfrage":"Heute geschlossen"};
+  const o=minutes(h.o),c=minutes(h.c);
+  const blocked=spBlocksToday(p).find(b=>m>=minutes(b.from)&&m<minutes(b.to));
+  if(blocked)return{k:"blocked",t:`Gesperrt bis ${blocked.to}`,note:blocked.label};
+  if(m<o)return{k:"soon",t:`Öffnet ${h.o}`};
+  if(m>=c)return{k:"closed",t:"Geschlossen"};
+  const left=c-m;
+  const nextBlock=spBlocksToday(p).find(b=>minutes(b.from)>m);
+  if(nextBlock&&minutes(nextBlock.from)-m<=120)
+    return{k:"open",t:`Offen bis ${nextBlock.from}`,note:nextBlock.label};
+  return{k:"open",t:left<=60?`Noch ${left} min`:`Offen bis ${h.c}`};
+}
+/* ---------- check-ins ---------- */
+const spCheckins=()=>SP().checkins||[];
+const spMonthKey=k=>(k||todayKey()).slice(0,7);
+function spUsed(p,monthKey){
+  const mk=monthKey||spMonthKey();
+  return spCheckins().filter(c=>c.placeId===p.id&&c.date.slice(0,7)===mk).length;
+}
+function spUsedToday(p){return spCheckins().filter(c=>c.placeId===p.id&&c.date===todayKey()).length;}
+function spCheckIn(id,date){
+  const p=spById(id);if(!p)return;
+  const d=date||todayKey();
+  SP().checkins.push({id:uid(),placeId:id,date:d,at:Date.now()});
+  save();render();
+  toast(`Check-in bei ${p.name} notiert.`,()=>{
+    const i=SP().checkins.findIndex(c=>c.placeId===id&&c.date===d);
+    if(i>=0)SP().checkins.splice(i,1);save();render();});
+}
+function spRecentBars(n=14){
+  const out=[];
+  for(let i=n-1;i>=0;i--){
+    const k=dkey(addDays(berlinNow(),-i));
+    out.push({k,v:spCheckins().filter(c=>c.date===k).length});
+  }
+  return out;
+}
+const mapsUrl=a=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a)}`;
+function copyText(txt,label){
+  const done=()=>toast(`${label||"Text"} kopiert.`);
+  if(navigator.clipboard?.writeText)navigator.clipboard.writeText(txt).then(done,()=>fallback());
+  else fallback();
+  function fallback(){
+    const ta=document.createElement("textarea");
+    ta.value=txt;ta.style.position="fixed";ta.style.opacity="0";
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");done();}catch(e){toast("Kopieren hat nicht geklappt.");}
+    ta.remove();
+  }
+}
+/* ---------- views ---------- */
+function spCard(p){
+  const t=spType(p.type),st=spStatus(p);
+  const used=spUsed(p),limit=p.allowance.per==="Monat"?p.allowance.n:null;
+  const h=spToday(p);
+  return `<article class="spcard ${st.k}" data-sp="${p.id}" style="--tc:${t.c}">
+    <div class="sp-top">
+      <span class="sp-ic">${ic(t.ic)}</span>
+      <span class="sp-badge sp-${st.k}">${esc(st.t)}</span>
+    </div>
+    <div class="sp-n">${esc(p.name)}</div>
+    <div class="sp-t">${esc(t.n)} · ${p.allowance.n}× pro ${p.allowance.per}</div>
+    ${st.note?`<div class="sp-warn">${ic("flame")}<span>${esc(st.note)}</span></div>`:""}
+    <div class="sp-hours">${h?`Heute ${h.o}–${h.c}`:esc(p.hoursNote?"Termin nach Absprache":"Heute geschlossen")}</div>
+    ${limit?`<div class="sp-quota"><div class="prog thin"><i style="width:${clamp(used/limit,0,1)*100}%"></i></div>
+      <span class="meta">${used} von ${limit} diesen Monat</span></div>`
+      :`<div class="sp-quota"><span class="meta">${used}× diesen Monat${spUsedToday(p)?" · heute schon da":""}</span></div>`}
+    <div class="sp-acts">
+      <button class="btn sm primary" data-spcheck="${p.id}">${ic("check")}<span>Check-in</span></button>
+      <button class="iconbtn" data-spcopy="${p.id}" aria-label="Adresse kopieren">${ic("copy")}</button>
+      <a class="iconbtn" href="${mapsUrl(p.address)}" target="_blank" rel="noopener"
+        aria-label="In Karten öffnen" data-stop>${ic("pin")}</a>
+      ${p.url?`<a class="iconbtn" href="${esc(p.url)}" target="_blank" rel="noopener"
+        aria-label="Webseite öffnen" data-stop>${ic("link")}</a>`:""}
+    </div>
+  </article>`;
+}
+function viewSports(){
+  const f=SP().filter,city=SP().city;
+  let list=spPlaces();
+  if(f)list=list.filter(p=>p.type===f);
+  if(city)list=list.filter(p=>p.city===city);
+  const openNow=spPlaces().filter(p=>spStatus(p).k==="open");
+  const bars=spRecentBars(14),maxB=Math.max(1,...bars.map(b=>b.v));
+  const month=spCheckins().filter(c=>c.date.slice(0,7)===spMonthKey()).length;
+  const cities=spCities().filter(c=>!city||c===city);
+
+  return `<div class="page">
+    ${heroHTML("sports","Fitness","Wo du heute hin kannst — und was dein Vertrag hergibt.")}
+
+    <div class="grid" style="margin-bottom:18px">
+      <div class="c5"><div class="panel" style="height:100%"><div class="panel-b">
+        <div class="eyebrow">Jetzt geöffnet</div>
+        <div class="num" style="font-size:30px;margin-top:2px">${openNow.length}<span style="font-size:15px;color:var(--text-faint)"> von ${spPlaces().length}</span></div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:12px">
+          ${openNow.slice(0,5).map(p=>`<button class="sp-chip" data-sp="${p.id}" style="--tc:${spType(p.type).c}">
+            ${ic(spType(p.type).ic)}<span>${esc(p.name)}</span></button>`).join("")
+            ||`<span class="meta">Gerade hat nichts offen.</span>`}
+        </div>
+      </div></div></div>
+      <div class="c7"><div class="panel" style="height:100%"><div class="panel-b">
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <div class="eyebrow">Letzte 14 Tage</div><div style="flex:1"></div>
+          <span class="meta">${month} Check-in${month===1?"":"s"} diesen Monat</span>
+        </div>
+        <div class="spbars">${bars.map(b=>`<div class="spbar ${b.k===todayKey()?"today":""}" title="${esc(fmtDate(b.k))}: ${b.v}">
+          <i style="height:${b.v?Math.max(12,b.v/maxB*100):0}%"></i>
+          <span>${parseKey(b.k).getDate()}</span></div>`).join("")}</div>
+      </div></div></div>
+    </div>
+
+    <div class="cal-bar">
+      <div style="display:flex;gap:7px;flex-wrap:wrap">
+        <button class="chip ${!f?"on":""}" data-spfilter="">Alle</button>
+        ${SP_TYPES.filter(t=>spPlaces().some(p=>p.type===t.id)).map(t=>
+          `<button class="chip ${f===t.id?"on":""}" data-spfilter="${t.id}">${ic(t.ic)}<span>${t.n}</span></button>`).join("")}
+      </div>
+      <div style="flex:1"></div>
+      ${selHTML("city",[{v:"",n:"Alle Orte"},...spCities().map(c=>({v:c,n:c}))],city,'data-spcity style="max-width:170px"')}
+      <button class="btn primary" data-spnew>${ic("plus")}<span>Standort</span></button>
+    </div>
+
+    ${cities.map(c=>{
+      const inCity=list.filter(p=>p.city===c);
+      if(!inCity.length)return "";
+      return `<section class="spsec">
+        <div class="spsec-h"><span class="sps-n">${esc(c)}</span>
+          <span class="count">${inCity.length}</span><div class="bdline"></div></div>
+        <div class="sprow">${inCity.map(spCard).join("")}</div>
+      </section>`;}).join("")
+      ||emptyHTML("target","Kein Standort passt.",`<button class="btn primary" data-spfilter="">Filter zurücksetzen</button>`)}
+
+    <p class="meta" style="margin-top:20px;line-height:1.7">Öffnungszeiten ändern sich, besonders in den Ferien und an Feiertagen.
+      Bei den Bädern habe ich die Sportbad-Zeiten eingetragen und die Quellen verlinkt — im Zweifel lieber kurz nachsehen.</p>
+  </div>`;
+}
+function spDlg(id){
+  const p=spById(id);if(!p)return;
+  const t=spType(p.type),st=spStatus(p),today=dowIdx(berlinNow());
+  const used=spUsed(p),limit=p.allowance.per==="Monat"?p.allowance.n:null;
+  const hist=spCheckins().filter(c=>c.placeId===p.id).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,8);
+  modal({title:"",size:"wide",
+    body:`<div class="spdlg" style="--tc:${t.c}">
+      <div class="spd-h">
+        <span class="sp-ic big">${ic(t.ic)}</span>
+        <div style="flex:1;min-width:0">
+          <div class="eyebrow">${esc(p.city)} · ${esc(t.n)}</div>
+          <h2>${esc(p.name)}</h2>
+          <div class="meta" style="margin-top:4px">${p.allowance.n}× pro ${p.allowance.per} im Vertrag enthalten</div>
+        </div>
+        <span class="sp-badge sp-${st.k}">${esc(st.t)}</span>
+      </div>
+
+      <div class="spd-addr">
+        <span class="sp-ic sm">${ic("pin")}</span>
+        <span style="flex:1">${esc(p.address||"Keine Adresse hinterlegt")}</span>
+        ${p.address?`<button class="btn sm ghost" data-spcopy="${p.id}">${ic("copy")}<span>Kopieren</span></button>
+        <a class="btn sm ghost" href="${mapsUrl(p.address)}" target="_blank" rel="noopener">${ic("pin")}<span>Karte</span></a>`:""}
+        ${p.url?`<a class="btn sm ghost" href="${esc(p.url)}" target="_blank" rel="noopener">${ic("link")}<span>Web</span></a>`:""}
+      </div>
+      ${p.phone?`<div class="spd-addr"><span class="sp-ic sm">${ic("phone")}</span>
+        <span style="flex:1">${esc(p.phone)}</span>
+        <button class="btn sm ghost" data-spcopyphone="${p.id}">${ic("copy")}<span>Kopieren</span></button></div>`:""}
+
+      <div class="spd-sec">
+        <h4>Öffnungszeiten</h4>
+        ${p.hours.some(Boolean)?`<div class="sphours">
+          ${DAYL.map((d,i)=>{
+            const h=p.hours[i],bl=(p.blocks||[]).filter(b=>b.d===i);
+            return `<div class="sph-row ${i===today?"now":""}">
+              <span class="sph-d">${d}</span>
+              <span class="sph-t">${h?`${h.o} – ${h.c}`:"geschlossen"}</span>
+              ${bl.map(b=>`<span class="sph-block">${b.from}–${b.to} gesperrt</span>`).join("")}
+            </div>`;}).join("")}
+        </div>`:`<p class="meta">Keine festen Zeiten hinterlegt.</p>`}
+        ${p.hoursNote?`<div class="banner warn" style="margin-top:12px"><span class="bi">${ic("flame")}</span>
+          <div><h4>Wichtig für dich</h4><p>${esc(p.hoursNote)}</p></div></div>`:""}
+      </div>
+
+      ${p.desc?`<div class="spd-sec"><h4>Zum Standort</h4><p>${esc(p.desc)}</p></div>`:""}
+      ${p.info?`<div class="spd-sec"><h4>Gut zu wissen</h4><p>${esc(p.info)}</p></div>`:""}
+
+      <div class="spd-sec">
+        <h4>Deine Besuche</h4>
+        ${limit?`<div class="prog" style="margin-bottom:8px"><i style="width:${clamp(used/limit,0,1)*100}%"></i></div>
+          <p class="meta" style="margin:0 0 12px">${used} von ${limit} Check-ins in diesem Monat genutzt.</p>`
+          :`<p class="meta" style="margin:0 0 12px">${used} Besuche in diesem Monat. Täglich nutzbar.</p>`}
+        ${hist.length?`<div style="display:flex;gap:7px;flex-wrap:wrap">
+          ${hist.map(c=>`<span class="chip">${esc(fmtDate(c.date))}</span>`).join("")}</div>`
+          :`<p class="meta">Noch kein Besuch notiert.</p>`}
+      </div>
+    </div>`,
+    footer:`<button class="btn danger sm" data-spdel="${p.id}" aria-label="Standort entfernen">${ic("trash")}</button>
+      <button class="btn ghost sm" data-spedit="${p.id}">${ic("edit")}<span>Bearbeiten</span></button>
+      <div class="sp"></div>
+      <button class="btn primary" data-spcheck="${p.id}">${ic("check")}<span>Check-in notieren</span></button>`,
+    onMount(o,close){
+      o.querySelector("[data-spcheck]").onclick=()=>{close();spCheckIn(p.id);};
+      o.querySelector("[data-spedit]").onclick=()=>{close();spEditDlg(p.id);};
+      o.querySelector("[data-spdel]").onclick=()=>{
+        const i=SP().places.indexOf(p),copy={...p};
+        SP().places.splice(i,1);save();close();render();
+        toast(`${copy.name} entfernt.`,()=>{SP().places.splice(i,0,copy);save();render();});};
+    }});
+}
+function spEditDlg(id){
+  const p=id?spById(id):null;
+  const d=p||{name:"",city:"Potsdam",type:"gym",allowance:{n:1,per:"Tag"},address:"",url:"",
+    phone:"",desc:"",info:"",hours:H(null,null,null,null,null,null,null),blocks:[],hoursNote:""};
+  modal({title:p?"Standort bearbeiten":"Neuer Standort",size:"wide",
+    body:`<div class="row2">
+        <div class="field"><label>Name</label><input class="inp" name="name" value="${esc(d.name)}" autofocus></div>
+        <div class="field"><label>Ort</label><input class="inp" name="city" value="${esc(d.city)}"></div>
+      </div>
+      <div class="row3">
+        <div class="field"><label>Art</label>${selHTML("type",SP_TYPES.map(t=>({v:t.id,n:t.n})),d.type)}</div>
+        <div class="field"><label>Check-ins</label><input class="inp" type="number" min="1" name="an" value="${d.allowance.n}"></div>
+        <div class="field"><label>pro</label>${selHTML("aper",[{v:"Tag",n:"Tag"},{v:"Monat",n:"Monat"},{v:"Woche",n:"Woche"}],d.allowance.per)}</div>
+      </div>
+      <div class="field"><label>Adresse</label><input class="inp" name="address" value="${esc(d.address)}"></div>
+      <div class="row2">
+        <div class="field"><label>Webseite</label><input class="inp" name="url" value="${esc(d.url||"")}"></div>
+        <div class="field"><label>Telefon</label><input class="inp" name="phone" value="${esc(d.phone||"")}"></div>
+      </div>
+      <div class="field"><label>Öffnungszeiten</label>
+        <div class="sphedit">${DAYL.map((dn,i)=>{
+          const h=d.hours[i];
+          return `<div class="sphe-row"><span>${dn}</span>
+            <input class="inp" type="time" data-ho="${i}" value="${h?h.o:""}">
+            <input class="inp" type="time" data-hc="${i}" value="${h?h.c:""}"></div>`;}).join("")}</div>
+        <p class="meta" style="margin-top:7px">Beide Felder leer lassen heißt geschlossen.</p></div>
+      <div class="field"><label>Hinweis zu den Zeiten</label>
+        <textarea class="ta" name="hoursNote" style="min-height:56px">${esc(d.hoursNote||"")}</textarea></div>
+      <div class="field"><label>Beschreibung</label>
+        <textarea class="ta" name="desc" style="min-height:70px">${esc(d.desc||"")}</textarea></div>
+      <div class="field" style="margin-bottom:0"><label>Gut zu wissen</label>
+        <textarea class="ta" name="info" style="min-height:70px">${esc(d.info||"")}</textarea></div>`,
+    footer:`<div class="sp"></div><button class="btn ghost" data-x>Abbrechen</button>
+      <button class="btn primary" data-ok>${p?"Speichern":"Anlegen"}</button>`,
+    onMount(o,close){
+      const g=n=>o.querySelector(`[name=${n}]`);
+      o.querySelector("[data-x]").onclick=close;
+      o.querySelector("[data-ok]").onclick=()=>{
+        const name=g("name").value.trim();if(!name){g("name").focus();return;}
+        const hours=DAYL.map((_,i)=>{
+          const oo=o.querySelector(`[data-ho="${i}"]`).value,cc=o.querySelector(`[data-hc="${i}"]`).value;
+          return oo&&cc?{o:oo,c:cc}:null;});
+        const obj={name,city:g("city").value.trim()||"Ohne Ort",type:g("type").value,
+          allowance:{n:+g("an").value||1,per:g("aper").value},
+          address:g("address").value.trim(),url:g("url").value.trim(),phone:g("phone").value.trim(),
+          hours,hoursNote:g("hoursNote").value.trim(),desc:g("desc").value.trim(),info:g("info").value.trim()};
+        if(p)Object.assign(p,obj);
+        else SP().places.push({id:uid(),order:SP().places.length,blocks:[],...obj});
+        save();close();render();};
+    }});
+}
+function homeSportsCard(){
+  const open=spPlaces().filter(p=>spStatus(p).k==="open");
+  const month=spCheckins().filter(c=>c.date.slice(0,7)===spMonthKey()).length;
+  const last=spCheckins().slice(-1)[0];
+  return `<div class="panel lift" data-nav="sports" role="button" tabindex="0" style="height:100%;cursor:pointer">
+    <div class="panel-h"><span class="panel-t">🏋️ Fitness</span>
+      <span class="meta" style="margin-left:auto">${open.length} offen</span></div>
+    <div class="panel-b">
+      <div class="num" style="font-size:26px">${month}</div>
+      <div class="meta">Check-ins diesen Monat${last?` · zuletzt ${esc(relDay(last.date))}`:""}</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px">
+        ${open.slice(0,3).map(p=>`<span class="sp-chip" style="--tc:${spType(p.type).c}">
+          ${ic(spType(p.type).ic)}<span>${esc(p.name.split(" ")[0])}</span></span>`).join("")
+          ||`<span class="meta">Gerade hat nichts offen.</span>`}
+      </div>
+    </div>
+  </div>`;
+}
+/* ---------- events ---------- */
+document.addEventListener("click",e=>{
+  if(e.target.closest("[data-stop]")){e.stopPropagation();return;}
+  const cp=e.target.closest("[data-spcopy]");
+  if(cp){e.stopPropagation();const p=spById(cp.dataset.spcopy);
+    if(p)copyText(p.address,"Adresse");return;}
+  const cph=e.target.closest("[data-spcopyphone]");
+  if(cph){e.stopPropagation();const p=spById(cph.dataset.spcopyphone);
+    if(p)copyText(p.phone,"Telefonnummer");return;}
+  const ck=e.target.closest("[data-spcheck]");
+  if(ck){e.stopPropagation();spCheckIn(ck.dataset.spcheck);return;}
+  const f=e.target.closest("[data-spfilter]");
+  if(f){SP().filter=f.dataset.spfilter;save();render();return;}
+  if(e.target.closest("[data-spnew]")){spEditDlg();return;}
+  const ed=e.target.closest("[data-spedit]");
+  if(ed&&!e.target.closest(".ovl")){e.stopPropagation();spEditDlg(ed.dataset.spedit);return;}
+  const card=e.target.closest("[data-sp]");
+  if(card){spDlg(card.dataset.sp);return;}
+},false);
+document.addEventListener("change",e=>{
+  if(e.target.matches("[data-spcity]")){SP().city=e.target.value;save();render();}
+},false);
+
+/* ============ V16 WIRING ============ */
+function ensureV16(st){
+  ensureV14(st);
+  if(!st.sports||!Array.isArray(st.sports.places))st.sports=defaultSports();
+  st.sports.checkins=st.sports.checkins||[];
+  st.sports.places.forEach((p,i)=>{
+    if(typeof p.order!=="number")p.order=i;
+    if(!Array.isArray(p.hours))p.hours=[null,null,null,null,null,null,null];
+    if(!Array.isArray(p.blocks))p.blocks=[];
+    if(!p.allowance)p.allowance={n:1,per:"Tag"};
+  });
+  return st;
+}
+function repairState(st){
+  REQUIRED_ARRAYS.forEach(k=>{if(!Array.isArray(st[k]))st[k]=[];});
+  st.settings=st.settings||{};
+  st.tasks=st.tasks.filter(t=>t&&typeof t==="object").map(t=>({...t,id:t.id||uid()}));
+  st.blocks=st.blocks.filter(b=>b&&typeof b==="object"&&(b.date||b.recurrence))
+    .map(b=>({...b,id:b.id||uid()}));
+  st.birthdays=st.birthdays.filter(p=>p&&p.day>=1&&p.day<=31&&p.month>=1&&p.month<=12)
+    .map(p=>({...p,id:p.id||uid(),gifts:Array.isArray(p.gifts)?p.gifts:[]}));
+  ensureV16(st);
+  st.schemaVersion=SCHEMA_VERSION;
+  return st;
+}
+function ensureV2(st){return ensureV16(st);}
+
+const VIEWS16={...VIEWS14,sports:viewSports};
+const TITLE16={...TITLE14,sports:"Fitness"};
+const SUB16={...SUB14,sports:"Urban Sports Standorte"};
+
 function render(){
   const v=$("#view");
-  v.innerHTML=(VIEWS14[route.view]||viewHome)();
-  $("#tbTitle").textContent=TITLE14[route.view]||"Home";
-  $("#tbSub").textContent=SUB14[route.view]||"";
+  v.innerHTML=(VIEWS16[route.view]||viewHome)();
+  $("#tbTitle").textContent=TITLE16[route.view]||"Home";
+  $("#tbSub").textContent=SUB16[route.view]||"";
   renderNav();applyTheme();renderSyncPill();
   if(route.view==="settings"){
     const col=$("#view .c6");
@@ -12800,8 +13311,6 @@ function render(){
   if(route.view==="growth"&&(route.params.tab||"dash")==="courses")bindCourses();
   if(route.view==="budget")bindBudget();
 }
-/* start the reminder loop once the state is up */
-setTimeout(()=>{try{S.schemaVersion=SCHEMA_VERSION;notifyStart();keepBackup();}catch(e){}},2200);
 
 boot();
 </script>
