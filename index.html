@@ -16026,7 +16026,7 @@ function todayPanelHTML(){
       <span><b>${esc(sl.title)}</b><small>${esc(sl.sub)}</small></span></div>
       <div class="c3-dayprog" title="Tagesfortschritt"><i style="width:${(dayPct*100).toFixed(1)}%"></i></div>`:""}
     ${ad.length?`<div class="c3-adl">${ad.map(e=>allDayChip(e)).join("")}</div>`:""}
-    <div class="c3-agl">${rows.join("")||`<div class="c3-empty">Noch nichts geplant.<button class="btn sm" data-libsheet>${ic("plus")}<span>Block hinzufügen</span></button></div>`}</div>
+    <div class="c3-agl">${rows.join("")||`<div class="c3-empty">Noch nichts geplant.<button class="btn sm" data-libsheet data-day="${dk}">${ic("plus")}<span>Block hinzufügen</span></button></div>`}</div>
     <div class="c3-bud">
       <div><span>Verplant</span><b>${fmtMinDur(bud.busy)}</b></div><div><span>Frei</span><b>${fmtMinDur(bud.free)}</b></div>
       ${bud.work?`<div><span>Arbeit</span><b>${fmtMinDur(bud.work)}</b></div>`:""}
@@ -16128,7 +16128,8 @@ function c3DayList(dk){
 }
 
 /* ---------- library drag with the pointer: own preview, no browser ghost ---------- */
-let lib2=null,lib2End=0;
+let lib2=null,lib2End=0,c3SheetDay=null;
+const sheetDay=()=>c3SheetDay||calAnchor;
 document.addEventListener("pointerdown",e=>{
   const c=e.target.closest&&e.target.closest("[data-c3tpl]");
   if(!c||e.pointerType==="touch"||e.button>0)return;
@@ -16167,7 +16168,7 @@ document.addEventListener("pointerup",()=>{
 /* ---------- bottom sheet: list with colour preview, icon, name, duration ---------- */
 function openCalSheet(){
   const el=ensureCalSheet();
-  el.querySelector(".ns-body").innerHTML=`<div class="c3-sh-h"><b>Block hinzufügen</b><span>${esc(relDay(calAnchor))} · ${esc(fmtDate(calAnchor))}</span></div>
+  el.querySelector(".ns-body").innerHTML=`<div class="c3-sh-h"><b>Block hinzufügen</b><span>${esc(relDay(sheetDay()))} · ${esc(fmtDate(sheetDay()))}</span></div>
     <div class="c3-sh-list">${calLib().filter(t=>!t.hidden).map(t=>`<button type="button" class="c3-sh-row" data-pstpl="${t.id}" style="--bcs:${t.color}">
       <span class="sw ${t.solid?"solid":""}">${cic(t.ico)}</span><b>${esc(t.name)}</b>
       <span class="meta">${t.smart==="workday"?"Arbeitstag":fmtMinDur(t.dur)}</span>${ic("chevR")}</button>`).join("")}</div>
@@ -16176,8 +16177,8 @@ function openCalSheet(){
 }
 function placeSheet(tplId){
   const t=calTpl(tplId);if(!t)return;
-  if(t.smart==="workday"){closeCalSheet();workdayChooser(calAnchor);return;}
-  const dk=calAnchor,now=berlinNow(),snap=S.settings.snap||15;
+  if(t.smart==="workday"){const d=sheetDay();closeCalSheet();workdayChooser(d);return;}
+  const dk=sheetDay(),now=berlinNow(),snap=S.settings.snap||15;
   let s=dk===todayKey()?Math.ceil((now.getHours()*60+now.getMinutes())/snap)*snap:9*60;
   const free=nextFreeSlot(dk,s,t.dur);if(free!=null)s=free;
   const el=ensureCalSheet();
@@ -16333,6 +16334,19 @@ document.addEventListener("keydown",e=>{
   if(c&&(e.key==="Enter"||e.key===" ")){e.preventDefault();openCalSheet();placeSheet(c.dataset.c3tpl);}
   if(e.key==="Escape"&&c3Mini&&route.view==="calendar"){c3Mini=false;render();}
 });
+
+/* window capture runs before every document listener — older rules cannot swallow these clicks */
+window.addEventListener("click",e=>{
+  const ls=e.target.closest&&e.target.closest("[data-libsheet]");
+  if(ls){e.stopPropagation();e.preventDefault();c3SheetDay=ls.dataset.day||null;openCalSheet();return;}
+  const go=e.target.closest&&e.target.closest("[data-psgo]");
+  if(go){e.stopPropagation();e.preventDefault();
+    const dk=($("#psDay")&&$("#psDay").value)||sheetDay(),st=($("#psStart")&&$("#psStart").value)||"09:00";
+    const dur=+($("#calsheet")&&$("#calsheet").dataset.dur)||60;
+    closeCalSheet();c3SheetDay=null;placeTemplate(go.dataset.psgo,dk,minutes(st),dur);return;}
+  const add=e.target.closest&&e.target.closest("[data-c3add],[data-c3tpl]");
+  if(add)c3SheetDay=null;
+},true);
 
 /* ============================================================
    V20 B — supplements, home live status, day templates,
